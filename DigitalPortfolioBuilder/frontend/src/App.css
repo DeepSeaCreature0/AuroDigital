@@ -50,6 +50,7 @@ body {
 
 .navbar a:hover {
   background-color: #1abc9c;
+  text-decoration: none;
   color: #ffffff;
 }
 
@@ -299,9 +300,9 @@ form button[type="submit"]:hover {
 
 /* Card styling */
 .card {
-  display: block; /* Ensures the card behaves like a block element for the link */
-  text-decoration: none; /* Removes default link styles */
-  color: inherit; /* Inherits text color for card content */
+  display: block; 
+  text-decoration: none; 
+  color: inherit;
   background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -330,11 +331,11 @@ form button[type="submit"]:hover {
 }
 
 .card:hover .card-title {
-  color: #1abc9c; /* Change title color on hover */
+  color: #1abc9c;
 }
 
 .card:hover .card-email {
-  color: #1abc9c; /* Change email color on hover */
+  color: #1abc9c;
 }
 
 /* Portfolio Details Container */
@@ -352,6 +353,8 @@ form button[type="submit"]:hover {
   background-color: #f4f7f9;
   color: #333;
   font-family: 'Arial', sans-serif;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .default h2, .default h3 {
@@ -374,6 +377,8 @@ form button[type="submit"]:hover {
   font-family: 'Roboto', sans-serif;
   padding: 30px;
   border-radius: 15px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .modern h2, .modern h3 {
@@ -396,6 +401,8 @@ form button[type="submit"]:hover {
   font-family: 'Courier New', Courier, monospace;
   padding: 30px;
   border-left: 10px solid #ff6347; /* Tomato color accent */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .creative h2, .creative h3 {
@@ -418,6 +425,8 @@ form button[type="submit"]:hover {
   font-family: 'Arial', sans-serif;
   padding: 30px;
   border-radius: 15px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .professional h2, .professional h3 {
@@ -441,6 +450,8 @@ form button[type="submit"]:hover {
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .minimal h2, .minimal h3 {

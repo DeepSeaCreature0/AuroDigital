@@ -25,7 +25,7 @@ const PortfolioDetails = () => {
     }
 
     // Get the theme from portfolio data
-    const themeClass = portfolio.theme ? portfolio.theme.toLowerCase() : 'default'; // Default to 'default' if no theme is specified
+    const themeClass = portfolio.theme ? portfolio.theme.toLowerCase() : 'default';
 
     return (
         <div className={`portfolio-details-container ${themeClass}`}>

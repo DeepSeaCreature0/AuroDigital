@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 const App = () => {
     return (
         <Router>
-            <Navbar /> {/* Include Navbar at the top */}
+            <Navbar />
             <Routes>
                 <Route path="/" element={<PortfolioList />} />
                 <Route path="/create" element={<PortfolioForm />} />

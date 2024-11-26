@@ -12,21 +12,20 @@ const portfolioSchema = new mongoose.Schema({
         unique: true,
     },
     phone: {
-        type: String, // Optional phone number
+        type: String,
     },
     country: {
-        type: String, // Country of residence
+        type: String,
     },
     aboutMe: {
-        type: String, // "About Me" section for a personal introduction
+        type: String,
     },
     resume: {
         type: String, // Link to the resume file
     },
 
-    // Skills
     skills: {
-        type: [String], // Array of skills
+        type: [String],
         required: true,
     },
 
@@ -67,7 +66,7 @@ const portfolioSchema = new mongoose.Schema({
         {
             title: String,
             issuer: String,
-            link: String, // Link to verify the certification
+            link: String, // Link to the certification
         },
     ],
 
@@ -100,7 +99,7 @@ const portfolioSchema = new mongoose.Schema({
 
     // Portfolio Customization
     theme: {
-        type: String, // Name of the selected portfolio theme/template
+        type: String,
         default: "default",
     },
 

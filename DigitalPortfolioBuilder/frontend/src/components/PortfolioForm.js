@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { createPortfolio } from '../services/api';
 import '../App.css';
 
@@ -20,6 +21,10 @@ const PortfolioForm = () => {
         testimonials: [{ name: '', designation: '', company: '', recommendationLetterLink: '' }],
         theme: 'default',
     });
+
+    const navigate = useNavigate();
+
+    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -68,12 +73,26 @@ const PortfolioForm = () => {
         setFormData({ ...formData, [section]: updatedSection });
     };
 
+    const validateForm = () => {
+        if (!formData.name || !formData.email || !formData.country) {
+            setError('Please fill out all required fields.');
+            return false;
+        }
+        if (formData.experience.some((exp) => !exp.company || !exp.position || !exp.startDate)) {
+            setError('Please complete all required fields in Experience.');
+            return false;
+        }
+        setError(null);
+        return true;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validateForm()) return;
 
         const portfolioData = {
             ...formData,
-            skills: formData.skills.split(',').map((skill) => skill.trim()), // Convert skills string to array
+            skills: formData.skills.split(',').map((skill) => skill.trim()),
         };
 
         try {
@@ -96,8 +115,13 @@ const PortfolioForm = () => {
                 testimonials: [{ name: '', designation: '', company: '', recommendationLetterLink: '' }],
                 theme: 'default',
             });
+
+            setTimeout(() => {
+                navigate('/');
+            }, 2000);
         } catch (err) {
             console.error('Error creating portfolio:', err);
+            setError('Something went wrong. Please try again.');
         }
     };
 
@@ -140,7 +164,7 @@ const PortfolioForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Create Portfolio</h2>
-
+            {error && <div className="error">{error}</div>}
             {/* Basic Information */}
             <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
             <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
