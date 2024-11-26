@@ -24,7 +24,6 @@ const PortfolioForm = () => {
 
     const navigate = useNavigate();
 
-    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -73,22 +72,9 @@ const PortfolioForm = () => {
         setFormData({ ...formData, [section]: updatedSection });
     };
 
-    const validateForm = () => {
-        if (!formData.name || !formData.email || !formData.country) {
-            setError('Please fill out all required fields.');
-            return false;
-        }
-        if (formData.experience.some((exp) => !exp.company || !exp.position || !exp.startDate)) {
-            setError('Please complete all required fields in Experience.');
-            return false;
-        }
-        setError(null);
-        return true;
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validateForm()) return;
 
         const portfolioData = {
             ...formData,
@@ -121,7 +107,6 @@ const PortfolioForm = () => {
             }, 2000);
         } catch (err) {
             console.error('Error creating portfolio:', err);
-            setError('Something went wrong. Please try again.');
         }
     };
 
@@ -164,7 +149,6 @@ const PortfolioForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Create Portfolio</h2>
-            {error && <div className="error">{error}</div>}
             {/* Basic Information */}
             <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
             <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
@@ -178,10 +162,10 @@ const PortfolioForm = () => {
                 ))}
             </select>
             <textarea name="aboutMe" placeholder="About Me" value={formData.aboutMe} onChange={handleChange} />
-            <input type="url" name="resume" placeholder="Resume Link" value={formData.resume} onChange={handleChange} />
+            <input type="url" name="resume" placeholder="Resume Link" value={formData.resume} onChange={handleChange} required/>
 
             {/* Skills */}
-            <input type="text" name="skills" placeholder="Skills (comma-separated)" value={formData.skills} onChange={handleChange} />
+            <input type="text" name="skills" placeholder="Skills (comma-separated)" value={formData.skills} onChange={handleChange} required/>
 
             {/* Work Experience */}
             <h3>Work Experience</h3>

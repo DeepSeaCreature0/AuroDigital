@@ -34,22 +34,26 @@ const PortfolioDetails = () => {
             <p>Phone: {portfolio.phone}</p>
             <p>Country: {portfolio.country}</p>
             <p>About Me: {portfolio.aboutMe}</p>
-            {portfolio.resume && <p>Resume: <a href={portfolio.resume} target="_blank" rel="noopener noreferrer">View Resume</a></p>}
+            {portfolio.resume && (
+                <p>Resume: <a href={portfolio.resume} target="_blank" rel="noopener noreferrer">View Resume</a></p>
+            )}
 
             {/* Skills */}
-            <div>
-                <h3>Skills</h3>
-                <ul>
-                    {portfolio.skills.map((skill, index) => (
-                        <li key={index}>{skill}</li>
-                    ))}
-                </ul>
-            </div>
+            {portfolio.skills?.length > 0 && (
+                <div>
+                    <h3>Skills</h3>
+                    <ul>
+                        {portfolio.skills.map((skill, index) => (
+                            <li key={index}>{skill}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
 
             {/* Work Experience */}
-            <div>
-                <h3>Work Experience</h3>
-                {portfolio.experience.length > 0 ? (
+            {portfolio.experience?.length > 0 && (
+                <div>
+                    <h3>Work Experience</h3>
                     <ul>
                         {portfolio.experience.map((job, index) => (
                             <li key={index}>
@@ -60,15 +64,13 @@ const PortfolioDetails = () => {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>No work experience available.</p>
-                )}
-            </div>
+                </div>
+            )}
 
             {/* Education */}
-            <div>
-                <h3>Education</h3>
-                {portfolio.education.length > 0 ? (
+            {portfolio.education?.length > 0 && (
+                <div>
+                    <h3>Education</h3>
                     <ul>
                         {portfolio.education.map((edu, index) => (
                             <li key={index}>
@@ -79,34 +81,32 @@ const PortfolioDetails = () => {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>No education information available.</p>
-                )}
-            </div>
+                </div>
+            )}
 
             {/* Projects */}
-            <div>
-                <h3>Projects</h3>
-                {portfolio.projects.length > 0 ? (
+            {portfolio.projects?.length > 0 && (
+                <div>
+                    <h3>Projects</h3>
                     <ul>
                         {portfolio.projects.map((project, index) => (
                             <li key={index}>
                                 <h4>{project.title}</h4>
                                 <p>{project.description}</p>
-                                {project.githubLink && <p>GitHub: <a href={project.githubLink} target="_blank" rel="noopener noreferrer">View Project</a></p>}
+                                {project.githubLink && (
+                                    <p>GitHub: <a href={project.githubLink} target="_blank" rel="noopener noreferrer">View Project</a></p>
+                                )}
                                 <p>Technologies: {project.technologies.join(', ')}</p>
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>No projects available.</p>
-                )}
-            </div>
+                </div>
+            )}
 
             {/* Certifications */}
-            <div>
-                <h3>Certifications</h3>
-                {portfolio.certifications.length > 0 ? (
+            {portfolio.certifications?.length > 0 && (
+                <div>
+                    <h3>Certifications</h3>
                     <ul>
                         {portfolio.certifications.map((cert, index) => (
                             <li key={index}>
@@ -115,15 +115,13 @@ const PortfolioDetails = () => {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>No certifications available.</p>
-                )}
-            </div>
+                </div>
+            )}
 
             {/* Social Links */}
-            <div>
-                <h3>Social Links</h3>
-                {portfolio.socialLinks.length > 0 ? (
+            {portfolio.socialLinks?.length > 0 && (
+                <div>
+                    <h3>Social Links</h3>
                     <ul>
                         {portfolio.socialLinks.map((link, index) => (
                             <li key={index}>
@@ -131,15 +129,13 @@ const PortfolioDetails = () => {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>No social links available.</p>
-                )}
-            </div>
+                </div>
+            )}
 
             {/* Achievements */}
-            <div>
-                <h3>Achievements</h3>
-                {portfolio.achievements.length > 0 ? (
+            {portfolio.achievements?.length > 0 && (
+                <div>
+                    <h3>Achievements</h3>
                     <ul>
                         {portfolio.achievements.map((achievement, index) => (
                             <li key={index}>
@@ -148,15 +144,13 @@ const PortfolioDetails = () => {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>No achievements available.</p>
-                )}
-            </div>
+                </div>
+            )}
 
             {/* Testimonials */}
-            <div>
-                <h3>Testimonials</h3>
-                {portfolio.testimonials.length > 0 ? (
+            {portfolio.testimonials?.length > 0 && (
+                <div>
+                    <h3>Testimonials</h3>
                     <ul>
                         {portfolio.testimonials.map((testimonial, index) => (
                             <li key={index}>
@@ -165,10 +159,8 @@ const PortfolioDetails = () => {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>No testimonials available.</p>
-                )}
-            </div>
+                </div>
+            )}
         </div>
     );
 };

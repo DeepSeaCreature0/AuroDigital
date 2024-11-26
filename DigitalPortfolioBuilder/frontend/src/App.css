@@ -503,3 +503,6 @@ p {
 strong {
   font-weight: bold;
 }
+.error{
+  color:red;
+}
